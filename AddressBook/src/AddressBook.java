@@ -6,8 +6,8 @@ public class AddressBook {
     public ArrayList<Contacts> contactList = new ArrayList<>();
     public HashMap<String, ArrayList<Contacts>> personByState;
     public HashMap<String, ArrayList<Contacts>> personByCity;
+//  public ArrayList<Contacts> contactList;
 
-    //  public ArrayList<Contacts> contactList;
     public AddressBook() {
         personByCity = new HashMap<String, ArrayList<Contacts>>();
         personByState = new HashMap<String, ArrayList<Contacts>>();
@@ -32,7 +32,6 @@ public class AddressBook {
         String email = sc.next();
         System.out.println("Enter the Phone Number :");
         String phoneNumber = sc.next();
-        System.out.println("Enter the Zip Code :");
         System.out.println("Enter the Zip Code :");
         String zip = sc.next();
         Contacts contacts = new Contacts(firstName, lastName, address, city, state, email, phoneNumber, zip);
@@ -71,49 +70,49 @@ public class AddressBook {
                 int choice = sc.nextInt();
 
                 switch (choice) {
-                    case 1: {
+                    case 1 -> {
                         System.out.println("Enter First Name: ");
                         String firstName = sc.next();
                         contact.setFirstName(firstName);
                         break;
                     }
-                    case 2: {
+                    case 2 -> {
                         System.out.println("Enter last name: ");
                         String lastName = sc.next();
                         contact.setLastname(lastName);
                         break;
                     }
-                    case 3: {
+                    case 3 -> {
                         System.out.println("Enter Address: ");
                         String address = sc.next();
                         contact.setAddress(address);
                         break;
                     }
-                    case 4: {
+                    case 4 -> {
                         System.out.println("Enter City: ");
                         String city = sc.next();
                         contact.setCity(city);
                         break;
                     }
-                    case 5: {
+                    case 5 -> {
                         System.out.println("Enter State: ");
                         String state = sc.next();
                         contact.setState(state);
                         break;
                     }
-                    case 6: {
+                    case 6 -> {
                         System.out.println("Enter Email: ");
                         String email = sc.next();
                         contact.setEmailID(email);
                         break;
                     }
-                    case 7: {
+                    case 7 -> {
                         System.out.println("Enter Phone Number:");
                         String phoneNumber = sc.next();
                         contact.setPhoneNum(phoneNumber);
                         break;
                     }
-                    case 8: {
+                    case 8 -> {
                         System.out.println("Enter Zip Code: ");
                         String zip = sc.next();
                         contact.setZip(zip);

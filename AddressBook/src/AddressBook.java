@@ -2,11 +2,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class AddressBook {
-
     public static Scanner sc = new Scanner(System.in);
-
     public ArrayList<Contacts> contactList = new ArrayList<>();
-
     public HashMap<String, ArrayList<Contacts>> personByState;
     public HashMap<String, ArrayList<Contacts>> personByCity;
 
@@ -39,13 +36,13 @@ public class AddressBook {
         Contacts contacts = new Contacts(firstName, lastName, address, city, state, email, phoneNumber, zip);
         contactList.add(contacts);
 
-        if(!personByState.containsKey(state)){
-            personByState.put(state,new ArrayList<Contacts>());
+        if (!personByState.containsKey(state)) {
+            personByState.put(state, new ArrayList<Contacts>());
         }
         personByState.get(state).add(contacts);
 
-        if(!personByCity.containsKey(city)){
-            personByCity.put(city,new ArrayList<Contacts>());
+        if (!personByCity.containsKey(city)) {
+            personByCity.put(city, new ArrayList<Contacts>());
         }
         personByCity.get(city).add(contacts);
 
@@ -72,49 +69,49 @@ public class AddressBook {
                 int choice = sc.nextInt();
 
                 switch (choice) {
-                    case 1 :
+                    case 1:
                         System.out.println("Enter First Name: ");
                         String firstName = sc.next();
                         contact.setFirstName(firstName);
                         break;
 
-                    case 2 :
+                    case 2:
                         System.out.println("Enter last name: ");
                         String lastName = sc.next();
                         contact.setLastname(lastName);
                         break;
 
-                    case 3 :
+                    case 3:
                         System.out.println("Enter Address: ");
                         String address = sc.next();
                         contact.setAddress(address);
                         break;
 
-                    case 4 :
+                    case 4:
                         System.out.println("Enter City: ");
                         String city = sc.next();
                         contact.setCity(city);
                         break;
 
-                    case 5 :
+                    case 5:
                         System.out.println("Enter State: ");
                         String state = sc.next();
                         contact.setState(state);
                         break;
 
-                    case 6 :
+                    case 6:
                         System.out.println("Enter Email: ");
                         String email = sc.next();
                         contact.setEmailID(email);
                         break;
 
-                    case 7 :
+                    case 7:
                         System.out.println("Enter Phone Number:");
                         String phoneNumber = sc.next();
                         contact.setPhoneNum(phoneNumber);
                         break;
 
-                    case 8 :
+                    case 8:
                         System.out.println("Enter Zip Code: ");
                         String zip = sc.next();
                         contact.setZip(zip);
@@ -127,25 +124,6 @@ public class AddressBook {
         return flag == 1;
     }
 
-    //Method to Delete the Existing Contact
-  /*  public void deleteContact() {
-        //Get First Name to Edit the Contact
-        System.out.println("Enter the First Name : ");
-        String firstName = sc.next();
-        //check if the Given User with First Name
-        boolean isAvailable = false;
-        for(Contacts contact : contactList) {
-            if (firstName.equalsIgnoreCase(contact.getFirstName())) {
-                isAvailable = true;
-                contactList.remove(contact);
-                System.out.println("Contact deleted");
-                break;
-            }
-        }
-        if(!isAvailable) {
-            System.out.println("Contact number is not available");
-        }
-    }*/
     public boolean deleteContact(String name) {
         int flag = 0;
         for (Contacts contact : contactList) {
@@ -168,20 +146,21 @@ public class AddressBook {
         }
     }
 
-    // UC8- search a person by state name
+    // UC8- search a person by city name
     public void getPersonNameByState(String State) {
-        List<Contacts> list  = contactList.stream().filter(p ->p.getCity().equals(State)).collect(Collectors.toList());
-        for(Contacts contact: list){
-            System.out.println("First Name: "+contact.getFirstName());
-            System.out.println("Last Name: "+contact.getLastname());
+        List<Contacts> list = contactList.stream().filter(p -> p.getCity().equals(State)).collect(Collectors.toList());
+        for (Contacts contact : list) {
+            System.out.println("First Name: " + contact.getFirstName());
+            System.out.println("Last Name: " + contact.getLastname());
         }
     }
-    // UC9- search a person by city name
+
+    // UC8- search a person by name name
     public void getPersonNameByCity(String cityName) {
-        List<Contacts> list  = contactList.stream().filter(p ->p.getCity().equals(cityName)).collect(Collectors.toList());
-        for(Contacts contact: list){
-            System.out.println("First Name: "+contact.getFirstName());
-            System.out.println("Last Name: "+contact.getLastname());
+        List<Contacts> list = contactList.stream().filter(p -> p.getCity().equals(cityName)).collect(Collectors.toList());
+        for (Contacts contact : list) {
+            System.out.println("First Name: " + contact.getFirstName());
+            System.out.println("Last Name: " + contact.getLastname());
         }
     }
 }
